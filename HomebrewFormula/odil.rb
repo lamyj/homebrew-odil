@@ -31,15 +31,17 @@ class Odil < Formula
     if build.with?("python")
       python_executable = "/usr/local/bin/python3"
       python_prefix = `#{python_executable} -c 'import sys;print(sys.prefix)'`.chomp
-      python_version = "python" + `#{python_executable} -c 'import sys;print(sys.version[:3])'`.chomp
+      python_version = `#{python_executable} -c 'import sys;print(sys.version[:3])'`.chomp
       python_include_dir = `#{python_executable} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'`.chomp
-      python_library = "#{python_prefix}/lib/lib#{python_version}.dylib"
+      python_library = "#{python_prefix}/lib/libpython#{python_version}.dylib"
+      
+      boost_python_library = "/usr/local/lib/libboost_python#{python_version.delete "."}.dylib"
       
       args << "-DBUILD_PYTHON_WRAPPERS=ON"
       args << "-DPYTHON_EXECUTABLE=#{python_executable}"
       args << "-DPYTHON_LIBRARY=#{python_library}"
       args << "-DPYTHON_INCLUDE_DIR=#{python_include_dir}"
-      args << "-DBoost_PYTHON_LIBRARY_RELEASE=/usr/local/lib/libboost_python3.dylib"
+      args << "-DBoost_PYTHON_LIBRARY_RELEASE=#{boost_python_library}"
     else
       args << "-DBUILD_PYTHON_WRAPPERS=OFF"
     end
