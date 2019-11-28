@@ -8,6 +8,7 @@ class Odil < Formula
   option "without-python", "Build without python support"
 
   depends_on "cmake" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "boost" => :build
   depends_on "boost-python" => :build
@@ -35,6 +36,7 @@ class Odil < Formula
       
       boost_python_library = "/usr/local/lib/libboost_python#{python_version.delete "."}.dylib"
       
+      args << "-GNinja"
       args << "-DBUILD_PYTHON_WRAPPERS=ON"
       args << "-DPYTHON_EXECUTABLE=#{python_executable}"
       args << "-DPYTHON_LIBRARY=#{python_library}"
