@@ -17,8 +17,6 @@ class Odil < Formula
   depends_on "log4cpp" => :build
   depends_on "python" => :build
   
-  needs :cxx11
-
   def install
     ENV.cxx11
     
