@@ -11,11 +11,10 @@ class Odil < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "boost" => :build
-  depends_on "boost-python" => :build
   depends_on "dcmtk" => :build
   depends_on "icu4c" => :build
   depends_on "jsoncpp" => :build
-  depends_on "log4cpp" => :build
+  depends_on "pybind11" => :build
   depends_on "python" => :build
   
   def install
@@ -48,7 +47,7 @@ class Odil < Formula
     
     mkdir "build" do
       system "cmake", "..", *args
-      system "make", "install"
+      system "ninja", "install"
     end
   end
 end
