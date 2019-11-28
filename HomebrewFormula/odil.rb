@@ -1,8 +1,8 @@
 class Odil < Formula
   desc "A C++11 library for the DICOM standard"
   homepage "https://odil.readthedocs.io"
-  url "https://github.com/lamyj/odil/archive/v0.9.2.tar.gz"
-  sha256 "bbc9d4c1d4fafbd523a761330c61c357f8eae2278de30e2a0cdb2913f2457617"
+  url "https://github.com/lamyj/odil/archive/v0.10.0.tar.gz"
+  sha256 "5dcac1e415a84af737970c2db7cde329220080c5aaae933917757772067050c8"
   head "https://github.com/lamyj/odil.git"
 
   option "without-python", "Build without python support"
