@@ -25,6 +25,9 @@ class Odil < Formula
     ENV.delete "PYTHONPATH"
     
     args = std_cmake_args
+    args << "-GNinja"
+    # cf. https://github.com/Homebrew/homebrew-core/issues/44093
+    args << "-DBoost_NO_BOOST_CMAKE=ON"
     
     if build.with?("python")
       python_executable = "/usr/local/bin/python3"
@@ -35,7 +38,6 @@ class Odil < Formula
       
       boost_python_library = "/usr/local/lib/libboost_python#{python_version.delete "."}.dylib"
       
-      args << "-GNinja"
       args << "-DBUILD_PYTHON_WRAPPERS=ON"
       args << "-DPYTHON_EXECUTABLE=#{python_executable}"
       args << "-DPYTHON_LIBRARY=#{python_library}"
