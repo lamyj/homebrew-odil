@@ -16,12 +16,12 @@ class Odil < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost" => :build
-  depends_on "dcmtk" => :build
-  depends_on "icu4c" => :build
-  depends_on "jsoncpp" => :build
+  depends_on "boost"
+  depends_on "dcmtk"
+  depends_on "icu4c"
+  depends_on "jsoncpp"
   depends_on "pybind11" => :build
-  depends_on "python" => :build
+  depends_on "python"
   
   def install
     ENV.cxx11
