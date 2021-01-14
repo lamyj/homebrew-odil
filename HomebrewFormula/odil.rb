@@ -1,14 +1,14 @@
 class Odil < Formula
   desc "A C++11 library for the DICOM standard"
   homepage "https://odil.readthedocs.io"
-  url "https://github.com/lamyj/odil/archive/v0.12.0.tar.gz"
-  sha256 "001448ea18ce593ded5744b8755845520f71bbc9571dcee25161fe4cab936693"
+  url "https://github.com/lamyj/odil/archive/v0.12.1.tar.gz"
+  sha256 "48e607c247d4a20701692062a2761f36ae8a68199ec3bbe7cabc395e1731daa9"
   head "https://github.com/lamyj/odil.git"
   
   bottle do
     root_url "https://dl.bintray.com/lamyj/generic/bottles"
     cellar :any
-    sha256 "eff3c49ea3941ee3ce0d2e3e7d9d72a7d787e2a900d05d2f3948f35d846b2dcf" => :mojave
+    sha256 "cc6caa4f88debf84eba2f9dba968d3f9bafa7b78776de399af05eeecea527c04" => :mojave
   end
   
   option "without-python", "Build without python support"
